@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONG Esperança Solidária - Transformando Vidas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #4a2c5a;
+        }
+
+        /* Paleta de Cores Lilás */
+        :root {
+            --lilas-escuro: #6b3fa0;
+            --lilas-medio: #9b72cf;
+            --lilas-claro: #d4b5f7;
+            --lilas-suave: #f3e8ff;
+            --branco: #ffffff;
+            --texto: #4a2c5a;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--lilas-escuro), var(--lilas-medio));
+            color: var(--branco);
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--lilas-suave), var(--lilas-claro));
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--lilas-escuro);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--texto);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn-primary {
+            background-color: var(--lilas-escuro);
+            color: var(--branco);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--lilas-medio);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(107, 63, 160, 0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Seções */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: var(--lilas-escuro);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--branco);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(107, 63, 160, 0.1);
+            transition: all 0.3s;
+            border: 2px solid var(--lilas-claro);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(107, 63, 160, 0.2);
+        }
+
+        .card h3 {
+            color: var(--lilas-escuro);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Lista de Valores */
+        .valores-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .valores-list li {
+            background: linear-gradient(135deg, var(--lilas-claro), var(--lilas-suave));
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--texto);
+            box-shadow: 0 2px 4px rgba(107, 63, 160, 0.1);
+        }
+
+        /* Contato */
+        .contato-info {
+            background: var(--lilas-suave);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--lilas-escuro);
+        }
+
+        .contato-info p {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contato-info strong {
+            color: var(--lilas-escuro);
+            min-width: 100px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--lilas-medio), var(--lilas-escuro));
+            color: var(--branco);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Imagem placeholder */
+        .img-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--lilas-claro), var(--lilas-medio));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--branco);
+            font-size: 1.2rem;
+            margin: 2rem 0;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                💜 ONG Esperança Solidária
+            </div>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="cadastro.html">Cadastre-se</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Transformando Vidas com Amor e Solidariedade</h1>
+        <p>Juntos, construímos um futuro melhor através da educação, cultura e desenvolvimento social para comunidades que mais precisam.</p>
+        <a href="projetos.html" class="btn-primary">Conheça Nossos Projetos</a>
+    </section>
+
+    <div class="container">
+        <section>
+            <h2>Quem Somos</h2>
+            <div class="img-placeholder">
+                <img src="imagens/banner.jpg" alt="Voluntários da ONG em ação" style="width: 200%; border-radius: 5px;">
+
+
+
+            </div>
+            
+            </p>
+        </section>
+
+        <section>
+            <h2>Nossa Missão, Visão e Propósito</h2>
+            <div class="cards">
+                <article class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Missão</h3>
+                    <p>Promover o desenvolvimento social através de projetos educacionais e culturais, transformando realidades e construindo um futuro digno para todos.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">🌟</div>
+                    <h3>Visão</h3>
+                    <p>Ser referência nacional em transformação social, impactando positivamente a vida de milhares de famílias brasileiras.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">💖</div>
+                    <h3>Propósito</h3>
+                    <p>Acreditamos que cada pessoa merece oportunidades. Trabalhamos para que todos tenham acesso à educação, cultura e desenvolvimento pessoal.</p>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h2>Nossos Valores</h2>
+            <ul class="valores-list">
+                <li>💜 Solidariedade</li>
+                <li>🤝 Transparência</li>
+                <li>✨ Comprometimento</li>
+                <li>🌈 Inclusão</li>
+                <li>❤️ Respeito</li>
+                <li>🌱 Sustentabilidade</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Nosso Impacto</h2>
+            <div class="cards">
+                <article class="card">
+                    <div class="card-icon">👥</div>
+                    <h3>5.000+</h3>
+                    <p>Pessoas impactadas diretamente por nossos projetos sociais</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>50+</h3>
+                    <p>Projetos educacionais e culturais realizados</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3>15 Anos</h3>
+                    <p>De dedicação e transformação social na comunidade</p>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h2>Entre em Contato</h2>
+            <address class="contato-info">
+                <p><strong>📍 Endereço:</strong> Rua da Esperança, 123 - Centro, Tramandaí/RS</p>
+                <p><strong>📞 Telefone:</strong> (51) 3333-4444</p>
+                <p><strong>📧 E-mail:</strong> contato@ongesperanca.org.br</p>
+                <p><strong>🕐 Horário:</strong> Segunda a Sexta, 9h às 18h</p>
+            </address>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 ONG Esperança Solidária. Todos os direitos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Desenvolvido com 💜 para transformar vidas</p>
+    </footer>
+</body>
+</html>
