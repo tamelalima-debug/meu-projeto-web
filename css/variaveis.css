@@ -1,0 +1,94 @@
+/* ============================================
+   SISTEMA DE DESIGN - VARIÁVEIS CSS
+   ============================================ */
+
+:root {
+    /* === PALETA DE CORES === */
+    
+    /* Cores Primárias */
+    --primary-dark: #6b3fa0;
+    --primary-main: #9b72cf;
+    --primary-light: #d4b5f7;
+    --primary-pale: #f3e8ff;
+    
+    /* Cores Secundárias */
+    --secondary-dark: #4a2c5a;
+    --secondary-main: #8b5a9e;
+    --secondary-light: #c197d2;
+    
+    /* Cores Neutras */
+    --neutral-white: #ffffff;
+    --neutral-gray-100: #f8f9fa;
+    --neutral-gray-200: #e9ecef;
+    --neutral-gray-300: #dee2e6;
+    --neutral-gray-400: #ced4da;
+    --neutral-gray-500: #adb5bd;
+    --neutral-gray-600: #6c757d;
+    --neutral-gray-700: #495057;
+    --neutral-gray-800: #343a40;
+    --neutral-gray-900: #212529;
+    
+    /* Cores de Feedback */
+    --success: #27ae60;
+    --warning: #f39c12;
+    --error: #e74c3c;
+    --info: #3498db;
+    
+    /* === TIPOGRAFIA === */
+    
+    /* Tamanhos de Fonte */
+    --font-xs: 0.75rem;      /* 12px */
+    --font-sm: 0.875rem;     /* 14px */
+    --font-base: 1rem;       /* 16px */
+    --font-lg: 1.125rem;     /* 18px */
+    --font-xl: 1.25rem;      /* 20px */
+    --font-2xl: 1.5rem;      /* 24px */
+    --font-3xl: 1.875rem;    /* 30px */
+    --font-4xl: 2.25rem;     /* 36px */
+    --font-5xl: 3rem;        /* 48px */
+    
+    /* Pesos de Fonte */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    
+    /* Família de Fontes */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* === ESPAÇAMENTO MODULAR === */
+    --space-1: 0.5rem;   /* 8px */
+    --space-2: 1rem;     /* 16px */
+    --space-3: 1.5rem;   /* 24px */
+    --space-4: 2rem;     /* 32px */
+    --space-5: 2.5rem;   /* 40px */
+    --space-6: 3rem;     /* 48px */
+    --space-8: 4rem;     /* 64px */
+    --space-10: 5rem;    /* 80px */
+    
+    /* === BORDAS E SOMBRAS === */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-full: 9999px;
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    
+    /* === TRANSIÇÕES === */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 300ms ease-in-out;
+    --transition-slow: 500ms ease-in-out;
+    
+    /* === BREAKPOINTS (para referência) === */
+    /* xs: 0px */
+    /* sm: 576px */
+    /* md: 768px */
+    /* lg: 992px */
+    /* xl: 1200px */
+    /* xxl: 1400px */
+}

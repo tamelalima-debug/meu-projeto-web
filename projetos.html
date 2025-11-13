@@ -4,425 +4,280 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nossos Projetos - ONG Esperança Solidária</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #4a2c5a;
-        }
-
-        :root {
-            --lilas-escuro: #6b3fa0;
-            --lilas-medio: #9b72cf;
-            --lilas-claro: #d4b5f7;
-            --lilas-suave: #f3e8ff;
-            --branco: #ffffff;
-            --texto: #4a2c5a;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--lilas-escuro), var(--lilas-medio));
-            color: var(--branco);
-            padding: 1rem 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--branco);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-        }
-
-        nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--lilas-suave), var(--lilas-claro));
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            color: var(--lilas-escuro);
-            margin-bottom: 1rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        h2 {
-            color: var(--lilas-escuro);
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .projetos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .projeto-card {
-            background: var(--branco);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(107, 63, 160, 0.1);
-            transition: all 0.3s;
-            border: 2px solid var(--lilas-claro);
-        }
-
-        .projeto-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(107, 63, 160, 0.2);
-        }
-
-        .projeto-img {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, var(--lilas-claro), var(--lilas-medio));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--branco);
-            font-size: 3rem;
-        }
-
-        .projeto-content {
-            padding: 1.5rem;
-        }
-
-        .projeto-content h3 {
-            color: var(--lilas-escuro);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .projeto-content p {
-            margin-bottom: 1rem;
-            color: var(--texto);
-        }
-
-        .projeto-tag {
-            display: inline-block;
-            background: var(--lilas-suave);
-            color: var(--lilas-escuro);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .voluntario-section {
-            background: linear-gradient(135deg, var(--lilas-suave), var(--lilas-claro));
-            padding: 3rem;
-            border-radius: 20px;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .voluntario-section h2 {
-            color: var(--lilas-escuro);
-        }
-
-        .beneficios {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .beneficio-card {
-            background: var(--branco);
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 2px 4px rgba(107, 63, 160, 0.1);
-        }
-
-        .beneficio-card h3 {
-            color: var(--lilas-escuro);
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .doar-section {
-            background: var(--branco);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 3px solid var(--lilas-medio);
-            text-align: center;
-        }
-
-        .doar-opcoes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .doar-card {
-            background: linear-gradient(135deg, var(--lilas-claro), var(--lilas-suave));
-            padding: 2rem;
-            border-radius: 15px;
-            transition: all 0.3s;
-        }
-
-        .doar-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(107, 63, 160, 0.2);
-        }
-
-        .doar-card h3 {
-            color: var(--lilas-escuro);
-            margin-bottom: 1rem;
-        }
-
-        .btn-primary {
-            background-color: var(--lilas-escuro);
-            color: var(--branco);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: bold;
-            margin-top: 1rem;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--lilas-medio);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(107, 63, 160, 0.3);
-        }
-
-        footer {
-            background: linear-gradient(135deg, var(--lilas-medio), var(--lilas-escuro));
-            color: var(--branco);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .projetos-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Header com Navegação -->
     <header>
-        <nav>
-            <div class="logo">💜 ONG Esperança Solidária</div>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="cadastro.html">Cadastre-se</a></li>
+        <nav class="navbar">
+            <div class="logo">
+                💜 ONG Esperança Solidária
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Início</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Sobre Nós</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#missao" class="dropdown-item">Nossa Missão</a></li>
+                        <li><a href="index.html#valores" class="dropdown-item">Nossos Valores</a></li>
+                        <li><a href="index.html#impacto" class="dropdown-item">Nosso Impacto</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="projetos.html" class="nav-link">Projetos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cadastro.html" class="nav-link">Seja Voluntário</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contato" class="nav-link">Contato</a>
+                </li>
             </ul>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <h1>Nossos Projetos Sociais</h1>
-        <p>Conheça as iniciativas que estão transformando vidas e comunidades</p>
+        <div class="container">
+            <h1>Nossos Projetos Sociais</h1>
+            <p>Conheça as iniciativas que estão transformando vidas e comunidades</p>
+        </div>
     </section>
 
-    <div class="container">
-        <h2>Projetos em Andamento</h2>
-        
-        <div class="projetos-grid">
-            <article class="projeto-card">
-                <div class="projeto-img">📚</div>
-                <div class="projeto-content">
-                    <h3>Educação para Todos</h3>
-                    <p>Oferecemos reforço escolar gratuito para crianças e adolescentes em situação de vulnerabilidade social, garantindo melhor desempenho acadêmico.</p>
-                    <div class="projeto-tag">Educação</div>
-                    <div class="projeto-tag">120 beneficiados</div>
-                </div>
-            </article>
+    <!-- Projetos em Andamento -->
+    <section>
+        <div class="container">
+            <h2>Projetos em Andamento</h2>
+            
+            <div class="grid grid-auto-fit">
+                <!-- Projeto 1 -->
+                <article class="card">
+                    <img src="imagens/Educaçãosocial.jpg" alt="Projeto Educação para Todos" class="card-img">
+                    <div class="card-header">
+                        <h3 class="card-title">📚 Educação para Todos</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Oferecemos reforço escolar gratuito para crianças e adolescentes em situação de vulnerabilidade social, garantindo melhor desempenho acadêmico.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge">Educação</span>
+                        <span class="badge badge-success">120 beneficiados</span>
+                    </div>
+                </article>
 
-            <article class="projeto-card">
-                <div class="projeto-img">🎨</div>
-                <div class="projeto-content">
-                    <h3>Arte e Cultura na Comunidade</h3>
-                    <p>Oficinas de artes, música, teatro e dança que promovem a expressão criativa e o desenvolvimento de talentos artísticos.</p>
-                    <div class="projeto-tag">Cultura</div>
-                    <div class="projeto-tag">80 beneficiados</div>
-                </div>
-            </article>
+                <!-- Projeto 2 -->
+                <article class="card">
+                    <img src="imagens/arte.jpg" alt="Projeto Arte e Cultura" class="card-img">
+                    <div class="card-header">
+                        <h3 class="card-title">🎨 Arte e Cultura na Comunidade</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Oficinas de artes, música, teatro e dança que promovem a expressão criativa e o desenvolvimento de talentos artísticos.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge">Cultura</span>
+                        <span class="badge badge-info">80 beneficiados</span>
+                    </div>
+                </article>
 
-            <article class="projeto-card">
-                <div class="projeto-img">💼</div>
-                <div class="projeto-content">
-                    <h3>Capacitação Profissional</h3>
-                    <p>Cursos profissionalizantes e workshops de empregabilidade para jovens e adultos que buscam inserção no mercado de trabalho.</p>
-                    <div class="projeto-tag">Profissionalização</div>
-                    <div class="projeto-tag">150 beneficiados</div>
-                </div>
-            </article>
+                <!-- Projeto 3 -->
+                <article class="card">
+                    <img src="imagens/profissão.jpg" alt="Capacitação Profissional" class="card-img">
+                    <div class="card-header">
+                        <h3 class="card-title">💼 Capacitação Profissional</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Cursos profissionalizantes e workshops de empregabilidade para jovens e adultos que buscam inserção no mercado de trabalho.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge">Profissionalização</span>
+                        <span class="badge badge-warning">150 beneficiados</span>
+                    </div>
+                </article>
 
-            <article class="projeto-card">
-                <div class="projeto-img">🍎</div>
-                <div class="projeto-content">
-                    <h3>Nutrição e Saúde</h3>
-                    <p>Distribuição de alimentos e orientação nutricional para famílias em situação de insegurança alimentar.</p>
-                    <div class="projeto-tag">Saúde</div>
-                    <div class="projeto-tag">200 famílias</div>
-                </div>
-            </article>
+                <!-- Projeto 4 -->
+                <article class="card">
+                    <img src="imagens/nutrição2.jpg" alt="Nutrição e Saúde" class="card-img">
+                    <div class="card-header">
+                        <h3 class="card-title">🍎 Nutrição e Saúde</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Distribuição de alimentos e orientação nutricional para famílias em situação de insegurança alimentar.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge">Saúde</span>
+                        <span class="badge badge-success">200 famílias</span>
+                    </div>
+                </article>
 
-            <article class="projeto-card">
-                <div class="projeto-img">⚽</div>
-                <div class="projeto-content">
-                    <h3>Esporte e Cidadania</h3>
-                    <p>Atividades esportivas que promovem saúde, disciplina e trabalho em equipe para crianças e jovens.</p>
-                    <div class="projeto-tag">Esporte</div>
-                    <div class="projeto-tag">90 beneficiados</div>
-                </div>
-            </article>
+                <!-- Projeto 5 -->
+                <article class="card">
+                    <img src="imagens/esporte.jpg" alt="Esporte e Cidadania" class="card-img">
+                    <div class="card-header">
+                        <h3 class="card-title">⚽ Esporte e Cidadania</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Atividades esportivas que promovem saúde, disciplina e trabalho em equipe para crianças e jovens.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge">Esporte</span>
+                        <span class="badge badge-info">90 beneficiados</span>
+                    </div>
+                </article>
 
-            <article class="projeto-card">
-                <div class="projeto-img">👵</div>
-                <div class="projeto-content">
-                    <h3>Apoio à Terceira Idade</h3>
-                    <p>Atividades de convivência, cuidado e atenção para idosos, promovendo qualidade de vida e bem-estar.</p>
-                    <div class="projeto-tag">Assistência Social</div>
-                    <div class="projeto-tag">60 beneficiados</div>
-                </div>
-            </article>
+                <!-- Projeto 6 -->
+                <article class="card">
+                    <img src="imagens/idosos.jpg" alt="Apoio à Terceira Idade" class="card-img">
+                    <div class="card-header">
+                        <h3 class="card-title">👵 Apoio à Terceira Idade</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Atividades de convivência, cuidado e atenção para idosos, promovendo qualidade de vida e bem-estar.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge">Assistência Social</span>
+                        <span class="badge badge-warning">60 beneficiados</span>
+                    </div>
+                </article>
+            </div>
         </div>
+    </section>
 
-        <section class="voluntario-section">
+    <!-- Seja um Voluntário -->
+    <section style="background: linear-gradient(135deg, var(--primary-pale), var(--primary-light)); padding: var(--space-8) var(--space-2);">
+        <div class="container">
             <h2>🤝 Seja um Voluntário</h2>
-            <p style="max-width: 800px; margin: 0 auto 2rem;">
+            <p style="text-align: center; max-width: 800px; margin: 0 auto var(--space-4); font-size: var(--font-lg);">
                 Faça parte da nossa equipe de voluntários e contribua diretamente para a transformação de vidas. Sua dedicação e energia podem fazer toda a diferença!
             </p>
 
-            <div class="beneficios">
-                <div class="beneficio-card">
-                    <div style="font-size: 2.5rem;">💖</div>
+            <div class="grid grid-cols-2 grid-cols-md-2 grid-cols-lg-4">
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">💖</div>
                     <h3>Satisfação Pessoal</h3>
-                    <p>Sinta a alegria de fazer a diferença na vida de outras pessoas</p>
+                    <p style="font-size: var(--font-sm);">Sinta a alegria de fazer a diferença na vida de outras pessoas</p>
                 </div>
-                <div class="beneficio-card">
-                    <div style="font-size: 2.5rem;">🌱</div>
+
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">🌱</div>
                     <h3>Desenvolvimento</h3>
-                    <p>Desenvolva novas habilidades e competências valiosas</p>
+                    <p style="font-size: var(--font-sm);">Desenvolva novas habilidades e competências valiosas</p>
                 </div>
-                <div class="beneficio-card">
-                    <div style="font-size: 2.5rem;">👥</div>
+
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">👥</div>
                     <h3>Networking</h3>
-                    <p>Conheça pessoas inspiradoras e engajadas</p>
+                    <p style="font-size: var(--font-sm);">Conheça pessoas inspiradoras e engajadas</p>
                 </div>
-                <div class="beneficio-card">
-                    <div style="font-size: 2.5rem;">📜</div>
+
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">📜</div>
                     <h3>Certificação</h3>
-                    <p>Receba certificados digitais de participação</p>
+                    <p style="font-size: var(--font-sm);">Receba certificados digitais de participação</p>
                 </div>
             </div>
 
-            <a href="cadastro.html" class="btn-primary">Quero Ser Voluntário</a>
-        </section>
+            <div style="text-align: center; margin-top: var(--space-6);">
+                <a href="cadastro.html" class="btn btn-primary btn-lg">Quero Ser Voluntário</a>
+            </div>
+        </div>
+    </section>
 
-        <section class="doar-section">
+    <!-- Como Doar -->
+    <section>
+        <div class="container">
             <h2>💜 Como Doar</h2>
-            <p style="max-width: 800px; margin: 0 auto 1rem;">
+            <p style="text-align: center; max-width: 800px; margin: 0 auto var(--space-4); font-size: var(--font-lg);">
                 Sua doação é fundamental para mantermos nossos projetos ativos e transformando vidas. Existem várias formas de contribuir:
             </p>
 
-            <div class="doar-opcoes">
-                <div class="doar-card">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">💰</div>
-                    <h3>Doação Financeira</h3>
-                    <p>PIX: doacoes@ongesperanca.org.br</p>
-                    <p>Conta: Banco 001, Ag 1234, CC 56789-0</p>
+            <div class="alert alert-success">
+                <strong>🎉 Campanha Ativa:</strong> Estamos arrecadando fundos para o projeto "Biblioteca Comunitária". Ajude-nos a alcançar nossa meta!
+            </div>
+
+            <div class="grid grid-cols-2 grid-cols-md-2 grid-cols-lg-4">
+                <div class="card" style="text-align: center; background: linear-gradient(135deg, var(--primary-light), var(--primary-pale));">
+                    <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">💰</div>
+                    <h3 class="card-title">Doação Financeira</h3>
+                    <div class="card-body">
+                        <p><strong>PIX:</strong><br>doacoes@ongesperanca.org.br</p>
+                        <p style="font-size: var(--font-sm); margin-top: var(--space-2);">
+                            <strong>Banco:</strong> 001<br>
+                            <strong>Ag:</strong> 1234<br>
+                            <strong>CC:</strong> 56789-0
+                        </p>
+                    </div>
                 </div>
 
-                <div class="doar-card">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📦</div>
-                    <h3>Doação de Materiais</h3>
-                    <p>Alimentos não perecíveis, roupas, material escolar e brinquedos</p>
+                <div class="card" style="text-align: center; background: linear-gradient(135deg, var(--primary-light), var(--primary-pale));">
+                    <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">📦</div>
+                    <h3 class="card-title">Doação de Materiais</h3>
+                    <div class="card-body">
+                        <p>Alimentos não perecíveis, roupas, material escolar e brinquedos</p>
+                    </div>
                 </div>
 
-                <div class="doar-card">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏢</div>
-                    <h3>Parceria Empresarial</h3>
-                    <p>Sua empresa pode apoiar nossos projetos e fazer parte dessa transformação</p>
+                <div class="card" style="text-align: center; background: linear-gradient(135deg, var(--primary-light), var(--primary-pale));">
+                    <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">🏢</div>
+                    <h3 class="card-title">Parceria Empresarial</h3>
+                    <div class="card-body">
+                        <p>Sua empresa pode apoiar nossos projetos e fazer parte dessa transformação</p>
+                    </div>
                 </div>
 
-                <div class="doar-card">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">⏰</div>
-                    <h3>Doação de Tempo</h3>
-                    <p>Seja voluntário e compartilhe seu conhecimento e experiência</p>
+                <div class="card" style="text-align: center; background: linear-gradient(135deg, var(--primary-light), var(--primary-pale));">
+                    <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">⏰</div>
+                    <h3 class="card-title">Doação de Tempo</h3>
+                    <div class="card-body">
+                        <p>Seja voluntário e compartilhe seu conhecimento e experiência</p>
+                    </div>
                 </div>
             </div>
 
-            <p style="margin-top: 2rem; color: var(--lilas-escuro); font-weight: 600;">
-                📍 Endereço para doações: Rua da Esperança, 123 - Centro, Tramandaí/RS<br>
-                📞 Dúvidas? Ligue: (51) 3333-4444
-            </p>
-        </section>
-    </div>
+            <div style="text-align: center; margin-top: var(--space-6); padding: var(--space-4); background-color: var(--primary-pale); border-radius: var(--radius-xl);">
+                <p style="color: var(--primary-dark); font-weight: var(--font-semibold); margin-bottom: var(--space-2);">
+                    📍 Endereço para doações: Rua da Esperança, 123 - Centro, Tramandaí/RS
+                </p>
+                <p style="color: var(--primary-dark); font-weight: var(--font-semibold);">
+                    📞 Dúvidas? Ligue: (51) 3333-4444
+                </p>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 ONG Esperança Solidária. Todos os direitos reservados.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Desenvolvido com 💜 para transformar vidas</p>
+        <div class="container">
+            <p>&copy; 2024 ONG Esperança Solidária. Todos os direitos reservados.</p>
+            <p style="margin-top: var(--space-1); font-size: var(--font-sm);">Desenvolvido com 💜 para transformar vidas</p>
+        </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

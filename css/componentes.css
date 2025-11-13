@@ -1,0 +1,317 @@
+/* ============================================
+   COMPONENTES DE INTERFACE
+   ============================================ */
+
+/* === BOTÕES === */
+.btn {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    font-weight: var(--font-semibold);
+    text-align: center;
+    border-radius: var(--radius-full);
+    transition: var(--transition-base);
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-main));
+    color: var(--neutral-white);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-primary:focus {
+    outline: 3px solid var(--primary-light);
+    outline-offset: 2px;
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-secondary {
+    background-color: var(--neutral-white);
+    color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-pale);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-dark);
+    color: var(--neutral-white);
+}
+
+/* Tamanhos de Botões */
+.btn-sm {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-sm);
+}
+
+.btn-lg {
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--font-lg);
+}
+
+/* === CARDS === */
+.card {
+    background-color: var(--neutral-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+    border: 2px solid var(--primary-light);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.card-header {
+    margin-bottom: var(--space-3);
+}
+
+.card-title {
+    color: var(--primary-dark);
+    font-size: var(--font-2xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-2);
+}
+
+.card-body {
+    color: var(--secondary-dark);
+}
+
+.card-footer {
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--neutral-gray-300);
+}
+
+.card-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-3);
+}
+
+/* === BADGES E TAGS === */
+.badge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-xs);
+    font-weight: var(--font-semibold);
+    border-radius: var(--radius-full);
+    background-color: var(--primary-pale);
+    color: var(--primary-dark);
+}
+
+.badge-success {
+    background-color: rgba(39, 174, 96, 0.1);
+    color: var(--success);
+}
+
+.badge-warning {
+    background-color: rgba(243, 156, 18, 0.1);
+    color: var(--warning);
+}
+
+.badge-error {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--error);
+}
+
+.badge-info {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--info);
+}
+
+/* === ALERTAS === */
+.alert {
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-3);
+    border-left: 4px solid;
+}
+
+.alert-success {
+    background-color: rgba(39, 174, 96, 0.1);
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.alert-warning {
+    background-color: rgba(243, 156, 18, 0.1);
+    border-color: var(--warning);
+    color: var(--warning);
+}
+
+.alert-error {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-color: var(--error);
+    color: var(--error);
+}
+
+.alert-info {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-color: var(--info);
+    color: var(--info);
+}
+
+/* === FORMULÁRIOS === */
+.form-group {
+    margin-bottom: var(--space-3);
+}
+
+.form-label {
+    display: block;
+    color: var(--primary-dark);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-1);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: var(--space-2);
+    border: 2px solid var(--primary-light);
+    border-radius: var(--radius-md);
+    font-size: var(--font-base);
+    transition: var(--transition-base);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-dark);
+    box-shadow: 0 0 0 3px var(--primary-pale);
+}
+
+.form-input:invalid:not(:placeholder-shown) {
+    border-color: var(--error);
+}
+
+.form-input:valid:not(:placeholder-shown) {
+    border-color: var(--success);
+}
+
+.form-helper {
+    font-size: var(--font-sm);
+    color: var(--neutral-gray-600);
+    margin-top: var(--space-1);
+}
+
+.form-error {
+    font-size: var(--font-sm);
+    color: var(--error);
+    margin-top: var(--space-1);
+}
+
+/* === MODAL === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-base);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background-color: var(--neutral-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: var(--transition-base);
+}
+
+.modal-overlay.active .modal {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+}
+
+.modal-title {
+    font-size: var(--font-3xl);
+    color: var(--primary-dark);
+    font-weight: var(--font-bold);
+}
+
+.modal-close {
+    font-size: var(--font-3xl);
+    color: var(--neutral-gray-600);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.modal-close:hover {
+    color: var(--primary-dark);
+}
+
+/* === TOAST (Notificações) === */
+.toast {
+    position: fixed;
+    top: var(--space-4);
+    right: var(--space-4);
+    background-color: var(--neutral-white);
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    min-width: 300px;
+    z-index: 2000;
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

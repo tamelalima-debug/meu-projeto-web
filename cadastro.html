@@ -4,353 +4,244 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Voluntário - ONG Esperança Solidária</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #4a2c5a;
-            background: linear-gradient(135deg, #f3e8ff, #d4b5f7);
+            background: linear-gradient(135deg, var(--primary-pale), var(--primary-light));
             min-height: 100vh;
         }
-
-        :root {
-            --lilas-escuro: #6b3fa0;
-            --lilas-medio: #9b72cf;
-            --lilas-claro: #d4b5f7;
-            --lilas-suave: #f3e8ff;
-            --branco: #ffffff;
-            --texto: #4a2c5a;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--lilas-escuro), var(--lilas-medio));
-            color: var(--branco);
-            padding: 1rem 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--branco);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-        }
-
-        nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-
-        .form-card {
-            background: var(--branco);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 8px 20px rgba(107, 63, 160, 0.2);
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .form-header h1 {
-            color: var(--lilas-escuro);
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-header p {
-            color: var(--texto);
-            font-size: 1.1rem;
-        }
-
+        
         fieldset {
-            border: 2px solid var(--lilas-claro);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            border: 2px solid var(--primary-light);
+            border-radius: var(--radius-xl);
+            padding: var(--space-4);
+            margin-bottom: var(--space-4);
         }
-
+        
         legend {
-            color: var(--lilas-escuro);
-            font-size: 1.3rem;
-            font-weight: bold;
-            padding: 0 1rem;
+            color: var(--primary-dark);
+            font-size: var(--font-xl);
+            font-weight: var(--font-bold);
+            padding: 0 var(--space-2);
         }
-
-        .form-group {
-            margin-bottom: 1.5rem;
+        
+        .form-card {
+            background-color: var(--neutral-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-xl);
+            margin: var(--space-6) auto;
         }
-
-        label {
-            display: block;
-            color: var(--lilas-escuro);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
+        
         input, select, textarea {
             width: 100%;
-            padding: 0.8rem;
-            border: 2px solid var(--lilas-claro);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s;
-            font-family: inherit;
+            padding: var(--space-2);
+            border: 2px solid var(--primary-light);
+            border-radius: var(--radius-md);
+            font-size: var(--font-base);
+            transition: var(--transition-base);
         }
-
+        
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: var(--lilas-escuro);
-            box-shadow: 0 0 0 3px rgba(107, 63, 160, 0.1);
-        }
-
-        input:invalid:not(:placeholder-shown) {
-            border-color: #e74c3c;
-        }
-
-        input:valid:not(:placeholder-shown) {
-            border-color: #27ae60;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .btn-submit {
-            background: linear-gradient(135deg, var(--lilas-escuro), var(--lilas-medio));
-            color: var(--branco);
-            padding: 1rem 3rem;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(107, 63, 160, 0.3);
-        }
-
-        .info-box {
-            background: var(--lilas-suave);
-            border-left: 4px solid var(--lilas-escuro);
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-
-        .info-box p {
-            margin: 0;
-            color: var(--texto);
-        }
-
-        footer {
-            background: linear-gradient(135deg, var(--lilas-medio), var(--lilas-escuro));
-            color: var(--branco);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            .form-card {
-                padding: 2rem 1.5rem;
-            }
-
-            fieldset {
-                padding: 1.5rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
+            border-color: var(--primary-dark);
+            box-shadow: 0 0 0 3px var(--primary-pale);
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <nav>
-            <div class="logo">💜 ONG Esperança Solidária</div>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="cadastro.html">Cadastre-se</a></li>
+        <nav class="navbar">
+            <div class="logo">
+                💜 ONG Esperança Solidária
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Início</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Sobre Nós</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#missao" class="dropdown-item">Nossa Missão</a></li>
+                        <li><a href="index.html#valores" class="dropdown-item">Nossos Valores</a></li>
+                        <li><a href="index.html#impacto" class="dropdown-item">Nosso Impacto</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="projetos.html" class="nav-link">Projetos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cadastro.html" class="nav-link">Seja Voluntário</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contato" class="nav-link">Contato</a>
+                </li>
             </ul>
         </nav>
     </header>
 
+    <!-- Container do Formulário -->
     <div class="container">
         <div class="form-card">
-            <div class="form-header">
-                <h1>🤝 Cadastro de Voluntário</h1>
-                <p>Junte-se a nós e faça parte dessa transformação!</p>
+            <div style="text-align: center; margin-bottom: var(--space-6);">
+                <h1 style="color: var(--primary-dark); font-size: var(--font-4xl); margin-bottom: var(--space-2);">
+                    🤝 Cadastro de Voluntário
+                </h1>
+                <p style="font-size: var(--font-lg); color: var(--secondary-dark);">
+                    Junte-se a nós e faça parte dessa transformação!
+                </p>
             </div>
 
-            <div class="info-box">
-                <p><strong>💜 Bem-vindo!</strong> Preencha o formulário abaixo para se cadastrar como voluntário. Entraremos em contato em breve para alinhar as próximas etapas.</p>
+            <div class="alert alert-info">
+                <strong>💜 Bem-vindo!</strong> Preencha o formulário abaixo para se cadastrar como voluntário. Entraremos em contato em breve para alinhar as próximas etapas.
             </div>
 
-            <form action="#" method="post">
+            <form action="#" method="post" id="form-voluntario">
+                <!-- Informações Pessoais -->
                 <fieldset>
                     <legend>📋 Informações Pessoais</legend>
                     
                     <div class="form-group">
-                        <label for="nome">Nome Completo *</label>
+                        <label class="form-label" for="nome">Nome Completo *</label>
                         <input 
                             type="text" 
                             id="nome" 
                             name="nome" 
+                            class="form-input"
                             required 
                             placeholder="Digite seu nome completo"
                             minlength="3"
                         >
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">E-mail *</label>
-                            <input 
-                                type="email" 
-                                id="email" 
-                                name="email" 
-                                required 
-                                placeholder="seu@email.com"
-                            >
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="email">E-mail *</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    class="form-input"
+                                    required 
+                                    placeholder="seu@email.com"
+                                >
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="cpf">CPF *</label>
-                            <input 
-                                type="text" 
-                                id="cpf" 
-                                name="cpf" 
-                                required 
-                                placeholder="000.000.000-00"
-                                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-                                title="Digite um CPF válido no formato: 000.000.000-00"
-                            >
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="cpf">CPF *</label>
+                                <input 
+                                    type="text" 
+                                    id="cpf" 
+                                    name="cpf" 
+                                    class="form-input"
+                                    required 
+                                    placeholder="000.000.000-00"
+                                    pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                                    title="Digite um CPF válido no formato: 000.000.000-00"
+                                >
+                                <small class="form-helper">Formato: 000.000.000-00</small>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="telefone">Telefone *</label>
-                            <input 
-                                type="tel" 
-                                id="telefone" 
-                                name="telefone" 
-                                required 
-                                placeholder="(00) 00000-0000"
-                                pattern="\(\d{2}\) \d{5}-\d{4}"
-                                title="Digite um telefone válido: (00) 00000-0000"
-                            >
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="telefone">Telefone *</label>
+                                <input 
+                                    type="tel" 
+                                    id="telefone" 
+                                    name="telefone" 
+                                    class="form-input"
+                                    required 
+                                    placeholder="(00) 00000-0000"
+                                    pattern="\(\d{2}\) \d{5}-\d{4}"
+                                    title="Digite um telefone válido: (00) 00000-0000"
+                                >
+                                <small class="form-helper">Formato: (00) 00000-0000</small>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="data-nascimento">Data de Nascimento *</label>
-                            <input 
-                                type="date" 
-                                id="data-nascimento" 
-                                name="data-nascimento" 
-                                required
-                                max="2006-01-01"
-                            >
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="data-nascimento">Data de Nascimento *</label>
+                                <input 
+                                    type="date" 
+                                    id="data-nascimento" 
+                                    name="data-nascimento" 
+                                    class="form-input"
+                                    required
+                                    max="2006-01-01"
+                                >
+                                <small class="form-helper">Idade mínima: 18 anos</small>
+                            </div>
                         </div>
                     </div>
                 </fieldset>
 
+                <!-- Endereço -->
                 <fieldset>
                     <legend>📍 Endereço</legend>
                     
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="cep">CEP *</label>
-                            <input 
-                                type="text" 
-                                id="cep" 
-                                name="cep" 
-                                required 
-                                placeholder="00000-000"
-                                pattern="\d{5}-\d{3}"
-                                title="Digite um CEP válido: 00000-000"
-                            >
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <div class="form-group">
+                                <label class="form-label" for="cep">CEP *</label>
+                                <input 
+                                    type="text" 
+                                    id="cep" 
+                                    name="cep" 
+                                    class="form-input"
+                                    required 
+                                    placeholder="00000-000"
+                                    pattern="\d{5}-\d{3}"
+                                    title="Digite um CEP válido: 00000-000"
+                                >
+                                <small class="form-helper">Formato: 00000-000</small>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="cidade">Cidade *</label>
-                            <input 
-                                type="text" 
-                                id="cidade" 
-                                name="cidade" 
-                                required 
-                                placeholder="Digite sua cidade"
-                            >
+                        <div class="col-12 col-md-8">
+                            <div class="form-group">
+                                <label class="form-label" for="cidade">Cidade *</label>
+                                <input 
+                                    type="text" 
+                                    id="cidade" 
+                                    name="cidade" 
+                                    class="form-input"
+                                    required 
+                                    placeholder="Digite sua cidade"
+                                >
+                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="endereco">Endereço Completo *</label>
+                        <label class="form-label" for="endereco">Endereço Completo *</label>
                         <input 
                             type="text" 
                             id="endereco" 
                             name="endereco" 
+                            class="form-input"
                             required 
                             placeholder="Rua, número, complemento"
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="estado">Estado *</label>
-                        <select id="estado" name="estado" required>
+                        <label class="form-label" for="estado">Estado *</label>
+                        <select id="estado" name="estado" class="form-select" required>
                             <option value="">Selecione seu estado</option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
@@ -383,54 +274,167 @@
                     </div>
                 </fieldset>
 
+                <!-- Área de Interesse -->
                 <fieldset>
                     <legend>💼 Área de Interesse</legend>
                     
                     <div class="form-group">
-                        <label for="area-interesse">Em qual projeto você gostaria de atuar? *</label>
-                        <select id="area-interesse" name="area-interesse" required>
+                        <label class="form-label" for="area-interesse">Em qual projeto você gostaria de atuar? *</label>
+                        <select id="area-interesse" name="area-interesse" class="form-select" required>
                             <option value="">Selecione uma opção</option>
-                            <option value="educacao">Educação para Todos</option>
-                            <option value="cultura">Arte e Cultura</option>
-                            <option value="profissionalizacao">Capacitação Profissional</option>
-                            <option value="saude">Nutrição e Saúde</option>
-                            <option value="esporte">Esporte e Cidadania</option>
-                            <option value="idosos">Apoio à Terceira Idade</option>
-                            <option value="diversos">Diversos projetos</option>
+                            <option value="educacao">📚 Educação para Todos</option>
+                            <option value="cultura">🎨 Arte e Cultura</option>
+                            <option value="profissionalizacao">💼 Capacitação Profissional</option>
+                            <option value="saude">🍎 Nutrição e Saúde</option>
+                            <option value="esporte">⚽ Esporte e Cidadania</option>
+                            <option value="idosos">👵 Apoio à Terceira Idade</option>
+                            <option value="diversos">🌟 Diversos projetos</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="disponibilidade">Disponibilidade de horário</label>
-                        <select id="disponibilidade" name="disponibilidade">
+                        <label class="form-label" for="disponibilidade">Disponibilidade de horário</label>
+                        <select id="disponibilidade" name="disponibilidade" class="form-select">
                             <option value="">Selecione</option>
-                            <option value="manha">Manhã</option>
-                            <option value="tarde">Tarde</option>
-                            <option value="noite">Noite</option>
-                            <option value="fds">Finais de semana</option>
-                            <option value="flexivel">Flexível</option>
+                            <option value="manha">🌅 Manhã</option>
+                            <option value="tarde">☀️ Tarde</option>
+                            <option value="noite">🌙 Noite</option>
+                            <option value="fds">🎉 Finais de semana</option>
+                            <option value="flexivel">✨ Flexível</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="mensagem">Conte-nos um pouco sobre você e por que quer ser voluntário</label>
+                        <label class="form-label" for="mensagem">Conte-nos um pouco sobre você e por que quer ser voluntário</label>
                         <textarea 
                             id="mensagem" 
                             name="mensagem" 
+                            class="form-textarea"
                             rows="5" 
                             placeholder="Compartilhe sua motivação e experiências..."
                         ></textarea>
+                        <small class="form-helper">Opcional: Conte-nos sobre suas experiências e motivações</small>
                     </div>
                 </fieldset>
 
-                <button type="submit" class="btn-submit">💜 Confirmar Cadastro</button>
+                <div style="text-align: center;">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        💜 Confirmar Cadastro
+                    </button>
+                    <button type="reset" class="btn btn-secondary btn-lg" style="margin-left: var(--space-2);">
+                        Limpar Formulário
+                    </button>
+                </div>
             </form>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 ONG Esperança Solidária. Todos os direitos reservados.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Desenvolvido com 💜 para transformar vidas</p>
+        <div class="container">
+            <p>&copy; 2024 ONG Esperança Solidária. Todos os direitos reservados.</p>
+            <p style="margin-top: var(--space-1); font-size: var(--font-sm);">Desenvolvido com 💜 para transformar vidas</p>
+        </div>
     </footer>
+
+    <!-- Modal de Sucesso -->
+    <div class="modal-overlay" id="modal-sucesso">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">🎉 Cadastro Realizado!</h2>
+                <span class="modal-close" id="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p style="text-align: center; font-size: var(--font-lg); margin-bottom: var(--space-3);">
+                    Obrigado por se cadastrar como voluntário! Em breve entraremos em contato.
+                </p>
+                <div style="text-align: center;">
+                    <span class="badge badge-success" style="font-size: var(--font-lg); padding: var(--space-2) var(--space-4);">
+                        ✅ Cadastro Confirmado
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Menu Hambúrguer
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Formulário e Modal
+        const form = document.getElementById('form-voluntario');
+        const modal = document.getElementById('modal-sucesso');
+        const modalClose = document.getElementById('modal-close');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Validar se todos os campos obrigatórios estão preenchidos
+            if (form.checkValidity()) {
+                // Mostrar modal de sucesso
+                modal.classList.add('active');
+                
+                // Limpar formulário após 2 segundos
+                setTimeout(() => {
+                    form.reset();
+                }, 2000);
+            } else {
+                // Mostrar mensagens de erro nativas do HTML5
+                form.reportValidity();
+            }
+        });
+
+        // Fechar modal
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Máscara para CPF
+        document.getElementById('cpf').addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+                e.target.value = value;
+            }
+        });
+
+        // Máscara para Telefone
+        document.getElementById('telefone').addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+                e.target.value = value;
+            }
+        });
+
+        // Máscara para CEP
+        document.getElementById('cep').addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 8) {
+                value = value.replace(/(\d{5})(\d{3})/, '$1-$2');
+                e.target.value = value;
+            }
+        });
+    </script>
 </body>
 </html>
